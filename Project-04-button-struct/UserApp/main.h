@@ -32,19 +32,8 @@ typedef struct
 
 } RCC_TypeDef;
 
-typedef struct
-{
-  __IO uint32_t SR;         /*!< USART Status register,                   Address offset: 0x00 */
-  __IO uint32_t DR;         /*!< USART Data register,                     Address offset: 0x04 */
-  __IO uint32_t BRR;        /*!< USART Baud rate register,                Address offset: 0x08 */
-  __IO uint32_t CR1;        /*!< USART Control register 1,                Address offset: 0x0C */
-  __IO uint32_t CR2;        /*!< USART Control register 2,                Address offset: 0x10 */
-  __IO uint32_t CR3;        /*!< USART Control register 3,                Address offset: 0x14 */
-  __IO uint32_t GTPR;       /*!< USART Guard time and prescaler register, Address offset: 0x18 */
-} USART_TypeDef;
 
-
-/*!< Peripheral memory map */
+/* Peripheral Memory map */
 #define PERIPH_BASE 	(0x40000000UL)
 #define APB1PERIPH_BASE (PERIPH_BASE + 0X00000000UL)
 #define APB2PERIPH_BASE (PERIPH_BASE + 0x00010000UL)
@@ -62,16 +51,11 @@ typedef struct
 
 
 #define __RCC_GPIOA_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 2)
-#define __RCC_GPIOB_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 3)
-#define __RCC_GPIOC_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 4)
 #define __RCC_GPIOD_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 5)
-#define __RCC_USART1_CLK_ENABLE()	RCC->APB2ENR |= (1 << 14)
 
 
 #define GPIO_Pin_2  (1 << 2)
 #define GPIO_Pin_8  (1 << 8)
-#define GPIO_Pin_9  (1 << 9)
-#define GPIO_Pin_10 (1 << 10)
 #define GPIO_Pin_15 (1 << 15)
 
 #define GPIO_PIN_SET (1)

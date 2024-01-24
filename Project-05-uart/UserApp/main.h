@@ -34,13 +34,13 @@ typedef struct
 
 typedef struct
 {
-  __IO uint32_t SR;         /*!< USART Status register,                   Address offset: 0x00 */
-  __IO uint32_t DR;         /*!< USART Data register,                     Address offset: 0x04 */
-  __IO uint32_t BRR;        /*!< USART Baud rate register,                Address offset: 0x08 */
-  __IO uint32_t CR1;        /*!< USART Control register 1,                Address offset: 0x0C */
-  __IO uint32_t CR2;        /*!< USART Control register 2,                Address offset: 0x10 */
-  __IO uint32_t CR3;        /*!< USART Control register 3,                Address offset: 0x14 */
-  __IO uint32_t GTPR;       /*!< USART Guard time and prescaler register, Address offset: 0x18 */
+	__IO uint32_t SR; /* USART Status register */
+	__IO uint32_t DR; /* USART Data register */
+	__IO uint32_t BRR; /* USART Baud rate register */
+	__IO uint32_t CR1; /* USART Control register 1 */
+	__IO uint32_t CR2; /* USART Control register 2 */
+	__IO uint32_t CR3; /* USART Control register 3 */
+	__IO uint32_t GTPR; /* USART Guard time and prescaler register */
 } USART_TypeDef;
 
 
@@ -62,31 +62,12 @@ typedef struct
 
 
 #define __RCC_GPIOA_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 2)
-#define __RCC_GPIOB_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 3)
-#define __RCC_GPIOC_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 4)
 #define __RCC_GPIOD_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 5)
 #define __RCC_USART1_CLK_ENABLE()	RCC->APB2ENR |= (1 << 14)
 
 
-#define GPIO_Pin_2  (1 << 2)
-#define GPIO_Pin_8  (1 << 8)
-#define GPIO_Pin_9  (1 << 9)
-#define GPIO_Pin_10 (1 << 10)
-#define GPIO_Pin_15 (1 << 15)
 
-#define GPIO_PIN_SET (1)
-#define GPIO_PIN_RST (0)
-
-#define GPIO_WritePin(GPIOx, GPIO_Pin, PinState) \
-	do{ \
-		if (PinState) \
-			GPIOx->BSRR = (uint32_t)GPIO_Pin; \
-		else \
-			GPIOx->BRR  = (uint32_t)GPIO_Pin; \
-	}while(0)
-
-#define GPIO_ReadPin(GPIOx, GPIO_Pin) (GPIOx->IDR & GPIO_Pin)
-
+void Delay(uint32_t n);
 
 #endif
 
