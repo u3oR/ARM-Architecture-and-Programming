@@ -398,11 +398,6 @@
               <FileType>1</FileType>
               <FilePath>..\UserApp\main.c</FilePath>
             </File>
-            <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\UserApp\gpio.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
