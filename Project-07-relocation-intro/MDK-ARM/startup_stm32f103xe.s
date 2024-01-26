@@ -14,12 +14,12 @@ __Vectors       DCD     0
                 AREA    |.text|, CODE, READONLY
 Reset_Handler   PROC
                 EXPORT  Reset_Handler             [WEAK]
-                IMPORT  user_main
+                IMPORT  main
 					
 				; set stack pointer
 				LDR SP, = (0x20000000 + 0xC000)
-                BL      user_main
+                BL      main
                 ENDP
-    
+		
                 END
 

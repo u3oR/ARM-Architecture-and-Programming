@@ -17,7 +17,7 @@ Reset_Handler   PROC
                 IMPORT  main
 					
 				; set stack pointer
-				LDR SP, = (0x20000000 + 0xC0000)
+				LDR SP, = (0x20000000 + 0xC000)
                 BL      main
                 ENDP
     
