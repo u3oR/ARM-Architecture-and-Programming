@@ -10,10 +10,9 @@ void Delay(uint32_t n)
 	while(n--);
 }
 
-// 元素个数太少会被放在data段, 
-static uint32_t test_data[3] = {0};
+const char *str = "i am 3oR.\n";
 
-int main(void)
+int user_main(void)
 {	
 	GPIO_Init();
 	UART_Init();
@@ -21,13 +20,13 @@ int main(void)
 	GPIO_WritePin(GPIOD, GPIO_Pin_2, GPIO_PIN_RST);
 	
 	// 打印字符串
-	puts("Hello World!\n");
+	// "Hello World!\n" 这段字符串的地址使用相对偏移地址获取, 实际的获取位置还在Flash中
+	puts("\nHello World!\n");
 	
-	if(test_data[1] == 0) {
-		puts("a[1] == 0\n");
-	}else {
-		puts("a[1] != 0\n");
-	}
+	// str 会被链接到内存但内存未被初始化 因而无法打印
+//	puts("i am 3oR.\n");
+	puts(str);
+	
 	
 	while(1);
 
