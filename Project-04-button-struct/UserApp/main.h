@@ -47,7 +47,6 @@ typedef struct
 #define RCC 	((RCC_TypeDef *)RCC_BASE)
 #define GPIOA 	((GPIO_TypeDef *)(GPIOA_BASE))
 #define GPIOD 	((GPIO_TypeDef *)(GPIOD_BASE))
-#define USART1	((USART_TypeDef *)(USART1_BASE))
 
 
 #define __RCC_GPIOA_CLK_ENABLE()  	RCC->APB2ENR |= (1 << 2)

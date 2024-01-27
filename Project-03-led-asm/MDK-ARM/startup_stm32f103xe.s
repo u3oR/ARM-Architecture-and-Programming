@@ -73,10 +73,11 @@ loop
 				
                 ENDP
 
-delay			
+delay			PROC
 				SUBS R0, R0, #1
 				BNE delay
 				BX LR
 				NOP
+				ENDP
 
 				END
